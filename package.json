@@ -1,0 +1,29 @@
+{
+  "name": "flightradar24-to-csv",
+  "version": "1.0.0",
+  "description": "Tiny tool to parse flightradar24 data to csv",
+  "main": "index.js",
+  "scripts": {
+    "prepublish": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/LuisSevillano/flightradar24-to-csv.git"
+  },
+  "keywords": [
+    "flightradar24",
+    "csv",
+    "d3"
+  ],
+  "author": "Luis Sevillano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LuisSevillano/flightradar24-to-csv/issues"
+  },
+  "homepage": "https://github.com/LuisSevillano/flightradar24-to-csv",
+  "devDependencies": {
+    "d3": "^4.11.0",
+    "fs": "0.0.1-security",
+    "mkdirp": "^0.5.1"
+  }
+}
