@@ -1,6 +1,6 @@
 ### FlightRadar24 to CSV
-A `nodejs` script to download and parse data from [Flight Radar](https://www.flightradar24.com).   
-To get a CSV file with flight data:
+A `nodejs` script to download and parse data from [Flight Radar](https://www.flightradar24.com) in `tsv` and `GeoJSON` format.    
+To get the files with flight data:
 - If the aircraft number is known modify the value of `flightId` variable in the `index.js` script and run `npm install`   .
 - If just know the flight number use [FlightRadar24](https://www.flightradar24.com/data) site to get it:
   - Search by flight number id.
@@ -8,7 +8,7 @@ To get a CSV file with flight data:
   - Copy the value from URL after the `#` symbol.
   - Finally run `npm install`.
 
-The `script` will create a folder with the data.
+After the `script` you will get a folder with the files inside.
 
 Some information about this script:
 

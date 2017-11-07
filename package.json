@@ -13,7 +13,8 @@
   "keywords": [
     "flightradar24",
     "csv",
-    "d3"
+    "d3",
+    "nodejs"
   ],
   "author": "Luis Sevillano",
   "license": "MIT",
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/LuisSevillano/flightradar24-to-csv",
   "devDependencies": {
+    "csv2geojson": "^5.0.2",
     "d3": "^4.11.0",
     "fs": "0.0.1-security",
     "mkdirp": "^0.5.1"

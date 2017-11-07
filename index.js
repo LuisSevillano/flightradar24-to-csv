@@ -1,6 +1,7 @@
 var fs = require('fs'),
     d3 = require('d3'),
-    mkdirp = require('mkdirp');
+    mkdirp = require('mkdirp'),
+    csv2geojson = require('csv2geojson');
 
 var flightId = 'f71049c',
     url = 'https://api.flightradar24.com/common/v1/flight-playback.json?flightId=',
@@ -8,8 +9,8 @@ var flightId = 'f71049c',
 
 d3.queue()
     .defer(d3.json, jsonURL)
-    .await(function(error, json) {
-        if (error) throw error;
+    .await(function(err, json) {
+        if (err) throw err;
 
         var data = json.result.response.data.flight,
             track = data.track,
@@ -42,9 +43,25 @@ d3.queue()
             csv.push(row);
         })
 
-        mkdirp('data', function(err) {
-            if (err) console.error(err)
-            else fs.writeFile('data/data.tsv', d3.tsvFormat(csv));
+        // parsing as tsv file
+        var csvFormated = d3.tsvFormat(csv);
+        
+        // export as geojson
+        csv2geojson.csv2geojson(csvFormated, {
+            latfield: 'latitude',
+            lonfield: 'longitude',
+            delimiter: '\t'
+        }, function(err, geojson) {
+            if (err) console.log(err);
+
+            mkdirp('data', function(err) {
+                if (err) console.error(err)
+                else {
+                    fs.writeFile('data/data.tsv', csvFormated);
+                    fs.writeFile('data/data.geojson', JSON.stringify(geojson));
+                }
+            });
         });
+
 
     })
