@@ -14,6 +14,9 @@ $ node index.js 21b090f8
   1. Get the value from URL after the `#` symbol: _flightradar24.com/data/flights/vy1292#**21b394f6**_
   1. Finally run `node index.js flightId`.
 
+  [![FlightRadar24 to CSV](http://img.youtube.com/vi/8HmZG8u3OgQ/0.jpg)](http://www.youtube.com/watch?v=8HmZG8u3OgQ "FlightRadar24 to CSV")
+
+
 After the `script` you will get a folder with the files inside.
 
 | latitude   | longitude    | altitude_feet | altitude_meters | speed_kmh | speed_kts | speed_mph | verticalSpeed_fpm | verticalSpeed_ms | heading | squawk | timestamp  |
