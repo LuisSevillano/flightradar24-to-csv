@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Tiny tool to parse flightradar24 data to CSV and GeoJSON",
   "main": "index.js",
-  "scripts": {
-    "prepublish": "node index.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/LuisSevillano/flightradar24-to-csv.git"
