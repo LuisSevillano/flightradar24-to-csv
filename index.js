@@ -73,8 +73,21 @@ d3.queue()
       mkdirp("data", function(err) {
         if (err) console.error(err);
         else {
-          fs.writeFile(`data/${flightId}.tsv`, csvFormated);
-          fs.writeFile(`data/${flightId}.geojson`, JSON.stringify(geojson));
+          fs.writeFile(`data/${flightId}.tsv`, csvFormated, function(
+            err,
+            result
+          ) {
+            if (err) console.log("error", err);
+            else console.log(`File ${flightId}.tsv written successfully`);
+          });
+          fs.writeFile(
+            `data/${flightId}.geojson`,
+            JSON.stringify(geojson),
+            function(err, result) {
+              if (err) console.log("error", err);
+              else console.log(`File ${flightId}.geojson written successfully`);
+            }
+          );
         }
       });
     } else {
