@@ -2,7 +2,7 @@ const fs = require("fs"),
   d3 = require("d3"),
   mkdirp = require("mkdirp");
 
-const flightId = process.argv[2] || "21b090f8", // example
+const flightId = process.argv[2] || "21b736e8", // example
   url =
     "https://api.flightradar24.com/common/v1/flight-playback.json?flightId=",
   jsonURL = url + flightId;

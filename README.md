@@ -4,18 +4,19 @@ NodeJS script to download and parse data from [Flight Radar](https://www.flightr
 To generate the files:
 
 - If the aircraft number is known modify the value of `flightId` variable in the `index.js` script and run `npm install` or just run `node index.js` followed by the `flightId`. For example:
+
 ```shell
 $ node index.js 21b090f8
 ```
 
 - If just know the flight number but not the `flightId` use [FlightRadar24](https://www.flightradar24.com/data) data portal to get it:
+
   1. Search by flight number id, by aircraft, origin/destination airport etc.
   1. Click on _play_ on the desired flight in the Flight history list.
   1. Get the value from URL after the `#` symbol: _flightradar24.com/data/flights/vy1292#**21b394f6**_
   1. Finally run `node index.js flightId`.
 
   [![FlightRadar24 to CSV](http://img.youtube.com/vi/8HmZG8u3OgQ/0.jpg)](http://www.youtube.com/watch?v=8HmZG8u3OgQ "FlightRadar24 to CSV")
-
 
 After the `script` you will get a folder with the files inside.
 
@@ -40,6 +41,9 @@ After the `script` you will get a folder with the files inside.
                ]
 ...
 ```
+
 ## Note:
 
-The default value of this tool gets the data from the `DL1680` flight that flies from Atlanta to San Francisco. FlightRadar24 keeps only the data for a few weeks so it's likely when you use this script with the default example it won't work properly.
+The default value of this tool gets the data from the `HF803` flight that flies from Yaounde (NSI)
+to Abidjan (ABJ)
+. FlightRadar24 keeps only the data for a few weeks so it is likely that when you try this script this default value does not work.
