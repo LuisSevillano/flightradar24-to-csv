@@ -3,18 +3,18 @@
 NodeJS script to download and parse data from [Flight Radar](https://www.flightradar24.com) in `tsv` and `GeoJSON` format.  
 To generate the files:
 
-- If the aircraft number is known run `node index.js` followed by the `flightId`. For example:
+1. If the aircraft number is known run `node index.js` followed by the `flightId`. For example:
 
 ```shell
 $ node index.js 21b090f8
 ```
 
-- If just know the flight number but not the `flightId` use [FlightRadar24](https://www.flightradar24.com/data) data portal to get it:
+2. If just know the flight number but not the `flightId` use [FlightRadar24](https://www.flightradar24.com/data) data portal to get it:
 
-  1. Search by flight number id, by aircraft, origin/destination airport etc.
-  1. Click on _play_ on the desired flight in the Flight history list.
-  1. Get the value from URL after the `#` symbol: _flightradar24.com/data/flights/vy1292#**21b394f6**_
-  1. Finally run `node index.js flightId`.
+    - Search by flight number id, by aircraft, origin/destination airport etc.
+    - Click on _play_ on the desired flight in the Flight history list.
+    - Get the value from URL after the `#` symbol: _flightradar24.com/data/flights/vy1292#**21b394f6**_
+    - Finally run `node index.js flightId`.
 
 Video [demo](https://www.youtube.com/watch?v=8HmZG8u3OgQ).
 
