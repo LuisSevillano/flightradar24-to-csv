@@ -22,7 +22,7 @@
   "homepage": "https://github.com/LuisSevillano/flightradar24-to-csv",
   "devDependencies": {
     "d3": "^4.11.0",
-    "fs": "0.0.1-security",
+    "fs": "0.0.2",
     "mkdirp": "^0.5.1"
   }
 }
