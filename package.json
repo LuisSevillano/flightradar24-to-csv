@@ -1,6 +1,6 @@
 {
   "name": "flightradar24-to-csv",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Tiny tool to parse flightradar24 data to CSV and GeoJSON",
   "main": "index.js",
   "repository": {
