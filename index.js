@@ -1,17 +1,17 @@
-const fs = require("fs"),
-  d3 = require("d3"),
-  mkdirp = require("mkdirp");
+const fetch = require("node-fetch");
+const fs = require("fs");
+const tsvFormat = require("d3-dsv").tsvFormat;
+const mkdirp = require("mkdirp");
 
+const settings = { method: "Get" };
 const flightId = process.argv[2] || "21b736e8", // example
   url =
     "https://api.flightradar24.com/common/v1/flight-playback.json?flightId=",
   jsonURL = url + flightId;
 
-d3.queue()
-  .defer(d3.json, jsonURL)
-  .await(function(err, json) {
-    if (err) throw err;
-
+fetch(jsonURL, settings)
+  .then(res => res.json())
+  .then(json => {
     const data = json.result.response.data.flight,
       track = data.track;
     if (track) {
@@ -68,7 +68,7 @@ d3.queue()
       geojson["features"].push(feature);
 
       // parsing as tsv file
-      const csvFormated = d3.tsvFormat(csv);
+      const csvFormated = tsvFormat(csv);
 
       /// get origin and destination names to use them in file name
       const origin = clearPropName("origin");
@@ -108,4 +108,5 @@ d3.queue()
       }
       return "unknown";
     }
-  });
+  })
+  .catch(err => console.log(err));
