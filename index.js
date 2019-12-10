@@ -70,27 +70,42 @@ d3.queue()
       // parsing as tsv file
       const csvFormated = d3.tsvFormat(csv);
 
+      /// get origin and destination names to use them in file name
+      const origin = clearPropName("origin");
+      const dest = clearPropName("destination");
+
       mkdirp("data", function(err) {
         if (err) console.error(err);
         else {
-          fs.writeFile(`data/${flightId}.tsv`, csvFormated, function(
+          const fileName = `${flightId}_${origin}_to_${dest}`;
+          fs.writeFile(`data/${fileName}.tsv`, csvFormated, function(
             err,
             result
           ) {
             if (err) console.log("error", err);
-            else console.log(`File ${flightId}.tsv written successfully`);
+            else console.log(`File ${fileName}.tsv written successfully`);
           });
           fs.writeFile(
-            `data/${flightId}.geojson`,
+            `data/${fileName}.geojson`,
             JSON.stringify(geojson),
+
             function(err, result) {
               if (err) console.log("error", err);
-              else console.log(`File ${flightId}.geojson written successfully`);
+              else console.log(`File ${fileName}.geojson written successfully`);
             }
           );
         }
       });
     } else {
       console.log("Flight data not found");
+    }
+
+    // clear property name, replace spaces, etc.
+    function clearPropName(prop) {
+      const reg = /\s/gi;
+      if (data.airport[prop] && data.airport[prop].name) {
+        return data.airport[prop].name.toLowerCase().replace(reg, "_");
+      }
+      return "unknown";
     }
   });
