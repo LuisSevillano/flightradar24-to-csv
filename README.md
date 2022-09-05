@@ -1,6 +1,6 @@
 ### FlightRadar24 to CSV
 
-NodeJS script to download and parse data from [Flight Radar](https://www.flightradar24.com) in `tsv` and `GeoJSON` format.  
+NodeJS script to download and parse data from [Flight Radar](https://www.flightradar24.com) in `tsv` and `GeoJSON` format.
 To generate the files:
 
 1. If the aircraft number is known run `node index.js` followed by the `flightId`. For example:
@@ -47,3 +47,6 @@ After the `script` you will get a folder with the files inside.
 The default value of this tool gets the data from the `HF803` flight that flies from Yaounde (NSI)
 to Abidjan (ABJ)
 . FlightRadar24 keeps only the data for a few weeks so it is likely that when you try this script this default value does not work.
+
+## Terms
+Please check [Flightradar24 Terms of Service](https://www.flightradar24.com/terms-and-conditions). The information provided through this respository is intended strictly for educational purposes only.
