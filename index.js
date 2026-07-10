@@ -3,7 +3,16 @@ const fs = require("fs");
 const tsvFormat = require("d3-dsv").tsvFormat;
 const mkdirp = require("mkdirp");
 
-const settings = { method: "Get" };
+const settings = {
+  method: "Get",
+  headers: {
+    // FlightRadar24 sits behind Cloudflare and returns a 403 HTML challenge
+    // page for requests without a browser-like User-Agent.
+    "User-Agent":
+      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
+    Accept: "application/json"
+  }
+};
 const flightId = process.argv[2] || "21b736e8", // example
   url =
     "https://api.flightradar24.com/common/v1/flight-playback.json?flightId=",
